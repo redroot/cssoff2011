@@ -77,6 +77,10 @@ nav {
   left: 0px;
   right: 0px;
   text-transform: uppercase;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
 }
   nav ul {
     width: 600px;
@@ -103,9 +107,16 @@ nav {
       background: rgba(0,0,0,0.3);
     }
     
+  nav.fadeIn {
+    background: rgba(0,0,0,0.5);
+  }
+  nav.fadeIn li a:hover {
+    background: rgba(0,0,0,0.8);
+  }
+    
 /** Layout-Wide Content Styles **/
 
-h1,h2,h3,input,select,section p {
+h1,h2,h3,input, select, .dropdown, section p,#obstacles li {
   font-family: 'KomikaTitle-PaintRegular', Arial, sans-serif;
   font-weight: normal;
   letter-spacing: 1px;
@@ -119,17 +130,16 @@ h3 {
   margin: 0px 0px 60px;
   height: 40px;
   line-height: 40px;
-  
+  background: transparent url("../images/checker.png") repeat right top;
 }
   h3 em {
     float: left;
     font-style: normal;
+    display: inline-block;
+    background: #7cbfd5 url("../images/textures_blue.jpg") repeat left top;
+    padding-right: 15px;
   }
-  h3 span {
-    display: block;
-    height: 40px;
-    /*background: transparent url("../images/checker.png") repeat right top;*/
-  }
+
   
 address {
   font-style: normal;
@@ -142,7 +152,7 @@ section .left, section .right {
 /** Sections **/
 
 header, footer, #contestant {
-  background: transparent url("../images/textures_blue.png") repeat left top;
+  background: transparent url("../images/textures_blue.jpg") repeat left top;
 }
 
 header {
@@ -167,13 +177,91 @@ header {
     margin: 5px 0px 30px;
   }
   
+#obstacles, #obstacles h3 em {
+  background: #fd6336 url("../images/textures_orange.jpg") repeat left top;
+}
+
 #obstacles {
-  background: #fd6336 url("../images/textures_orange.png") repeat left top;
+  border-top: 8px solid #ef6035;
+  border-bottom: 8px solid #ef6035;
+}
+  
+  #obstacles li {
+    text-align: center;
+    width: 190px;
+    height: 190px;
+    background: #80b238 url("../images/textures_green.jpg") repeat left top;
+    padding: 10px 10px;
+    border-radius: 10px;
+    list-style: none;
+    float: left;
+    font-size: 0.9em;
+    margin: 0px 10px 10px 0px;
+  }
+  
+  #obstacles li span {
+    display: block;
+  }
+  
+  #obstacles li:hover {
+    cursor: pointer;
+    color: #eef13f;
+  }
+  
+  #obstacles li:hover img {
+    transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+  }
+  
+  #obstacles li.current {
+    background: #eef13f url("../images/textures_yellow.jpg") repeat left top;
+    color: #fd6336;
+  }
+  
+  #obstacles .right {
+    text-align: center;
+  }
+  
+   #obstacles .right img {
+     margin-bottom: 10px;
+   }
+  
+  #obstacles .right p {
+    background: transparent url("../images/obstacle-splat-bg.jpg") no-repeat center top;
+    height: 300px;
+  }
+  
+  #obstacles .right p em, #obstacles .right p span {
+    display: block;
+    transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+  }
+  
+  #obstacles .right p em {
+    font-size: 2.5em;
+    padding-top: 50px;
+    font-style: normal;
+  }
+  #obstacles .right p span {
+    font-size: 1.6em;
+  }
+
+#prizes, #prizes h3 em {
+  background: #80b238 url("../images/textures_green.jpg") repeat left top;
 }
 
 #prizes {
-  background: #80b238 url("../images/textures_green.png") repeat left top;
+  border-top: 8px solid #78a835;
+  border-bottom: 8px solid #78a835;
 }
+
   #prizes .left, #prizes .right {
     font-size: 1.2em;
     text-align: center;
@@ -199,21 +287,28 @@ header {
 
 #contestant {
   clear: both;
+  border-top: 8px solid #6aacc2;
 }
 
   form {
+    position: relative;
     width: 100%;
   }
 
     form input, form select {
       width: 90%;
       color: #fff;
-      font-size: 1.1em;
-      background: #fd6336 url("../images/textures_orange.png") repeat left top;
+      font-size: 1em;
+      background: #fd6336 url("../images/textures_orange.jpg") repeat left top;
       border-radius: 8px;
       border: 1px solid #fd6336;
-      padding: 12px;
+      padding: 12px 12px 11px;
       margin-top: 10px;
+    }
+    
+
+    form #form-url {
+      clear: both;
     }
     
     form #form-submit {
@@ -229,6 +324,71 @@ header {
       background-position: center bottom;
       cursor: pointer;
     }
+    
+    #dropdown-form-color, #dropdown-form-gender {
+      float: right;
+      width: 35%;
+      margin-right: 4%;
+      background-image: url("../images/dd-arrow.jpg");
+      background-position: right center;
+      background-repeat: no-repeat;
+    }
+    
+    #dropdown-form-color {
+      width: 55%;
+      float: left;
+    }
+    
+    .dropdown {
+      position: relative;
+      margin-top: 10px;
+      background: #fd6336 url("../images/textures_orange.jpg") repeat left top;
+      color: #fff;
+      
+      border-radius: 8px;
+      border: 1px solid #fd6336;
+    }
+    .dropdown dt a  {
+      text-decoration: none;
+      display: block;
+      color: #fff;
+      font-size: 1em;
+      padding: 12px 65px 11px 12px;
+      z-index: 4;
+    }
+    
+    .dropdown dd ul {
+      background: #fd6336 url("../images/textures_orange.jpg") repeat left top;
+      padding: 5px;
+      width: 200px;
+      border: 1px solid #fff;
+      border-radius: 8px;
+      display: none;
+      position: absolute;
+      top: -40px;
+      left: 0px;
+      z-index: 5;
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+    }
+      .dropdown dd ul li {
+        list-style: none;
+      }
+      
+      .dropdown dd ul li a, .dropdown dd ul li a:visited {
+        text-decoration: none;
+        padding: 5px;
+        color: #eee;
+        display: block;
+      }
+      
+      .dropdown dd ul li a:hover {
+        background: #dd4316;
+        color: #fff;
+      }
+      
+      .dropdown .value {
+        display: none;
+      }
 
   #contestant .right {
     text-align: center;
@@ -316,7 +476,6 @@ footer {
 
 .clear {
   height: 1px;
-  zoom: 1;
   clear: both;
 }
 
@@ -324,12 +483,14 @@ footer {
   text-align: center;
 }
 
-.hide-access, .hide-non-mobile {
+#menu-jump, .hide-access {
   height: 1px;
   position: absolute;
   left: -9999px;
   top: -9999px;
 }
+
+/** IE fixes (if necessary) **/
 
 /** Media Queries **/
 
@@ -337,6 +498,34 @@ footer {
   .content-inner {
     width: 748px;
   }
+  
+  #obstacles .left, #obstacles .right {
+    float: none;
+    width: 100%;
+  }
+  
+  #obstacles ul {
+    text-align: center;
+    clear: both;
+    margin: 0px 0 0px 30px;
+  }
+  
+  #obstacles li {
+    display: inline-block;
+    width: 200px;
+  }
+  
+  #obstacles .right p {
+    float: left;
+    width: 265px;
+    margin-top: 40px;
+  }
+  
+  #obstacles .right img {
+    float: right;
+    margin: 40px 20px 0px 0px;
+  }
+  
   
   #prizes img {
     width: 80%;
@@ -371,9 +560,17 @@ footer {
   }
   
   h3 {
-    font-size: 1.6em;
+    font-size: 2.0em;
+    text-align: center;
     margin: 0px 0px 30px;
+    background: none;
   }
+  
+  h3 em {
+    float: none;
+    padding: 0px 15px;
+  }
+  
   
   nav {
     position: static;
@@ -393,12 +590,66 @@ footer {
       margin: 0;
     }
     
+    nav.fadeIn {
+      background: rgba(0,0,0,0.2);
+    }
+    nav.fadeIn li a:hover {
+      background: rgba(0,0,0,0.3);
+    }
+    
   .left, .right {
     float: none;
   }
   
   section .left, section .right {
     width: auto;
+  }
+  
+  #obstacles ul {
+    text-align: center;
+  }
+  #obstacles li {
+    display: block;
+    margin: 0px 0px 15px 5px;
+    text-align: right;
+    width: 90%;
+    height: 50px;
+  }
+  
+  #obstacles .left img {
+    width: 60px;
+    margin: 0px 30px 0px 0px;
+    float: left;
+  }
+  
+  #obstacles #obstacle-wringer img, #obstacles #obstacle-pick img, #obstacles #obstacle-wheel img {
+    margin-top: -5px;
+  }
+  
+  #obstacles #obstacle-hatch img {
+    margin-top: -15px;
+  }
+  
+  #obstacles #obstacle-slide img {
+    margin-top: -30px;
+  }
+  
+  #obstacles li span {
+    float: left;
+    margin-top: 15px;
+  }
+  
+  #obstacles .right {
+    clear: both;
+  }
+  
+  #obstacles .right p {
+    height: 230px;
+    font-size: 0.8em;
+  }
+  
+  #obstacles .right img {
+    width: 200px;
   }
   
   #prizes img {
@@ -435,5 +686,19 @@ footer {
     padding: 0px 0px 10px 10px;
   }
   
-  
+  #menu-jump {
+    display: inline-block;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    height: auto;
+    background: rgba(0,0,0,0.3);
+    width: 50px;
+    position: fixed;
+    top: -5px;
+    right: 15px;
+    left: auto;
+    text-decoration: none;
+    z-index: 100;
+  }
 }

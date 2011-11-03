@@ -11,7 +11,7 @@
 </head>
 <body>
   <header id="top">
-    <a class="hide-access" title="skip to the navigation" href="#nav-hook">Jump to navigation</a>
+    <a id="menu-jump" title="skip to the navigation" href="#nav-hook">menu</a>
       <h1>Triple Dare</h1>
       <h2>The Web's Messiest Challenge!</h2>
       <p id="airing">
@@ -20,29 +20,48 @@
   </header>
   <section id="obstacles">
     <div class="content-inner">
-      <h3>Obstacles</h3>
-      <div class="right">
-        <p>
-          <strong>Down the Hatch</strong>
-          6ft Slide Covered in Gunk
-        </p>
-        some image
-      </div>
+      <h3><em>Obstacles</em></h3>
       <div class="left">
         <ul>
-          <li id="obstacle-tank">The Tank</li>
-          <li id="obstacle-slide">The Sundae Slide</li>
-          <li id="obstacle-hamster">Human Hamster Wheel</li>
-          <li id="obstacle-hatch">Down The Hatch</li>
-          <li id="obstacle-pick">Pick It!</li>
-          <li id="obstacle-wringer">The Wringer</li>
+          <li id="obstacle-tank">
+            <img src="assets/images/obstacle-tank-small.png" alt="small image for the Tank" />
+            <span>The Tank</span>
+          </li>
+          <li id="obstacle-slide">
+            <img src="assets/images/obstacle-slide-small.png" alt="small image for the sundae slide" />
+            <span>The Sundae Slide</span>
+          </li>
+          <li id="obstacle-wheel">
+            <img src="assets/images/obstacle-wheel-small.png" alt="small image for the  Human Hamster Wheel" />
+            <span>Human Hamster Wheel</span>
+          </li>
+          <li id="obstacle-hatch" class="current">
+            <img src="assets/images/obstacle-hatch-small.png" alt="small image for Down the Hatch" />
+            <span>Down The Hatch</span>
+          </li>
+          <li id="obstacle-pick">
+            <img src="assets/images/obstacle-pick-small.png" alt="small image for Pick It" />
+            <span>Pick It!</span>
+          </li>
+          <li id="obstacle-wringer">
+            <img src="assets/images/obstacle-wringer-small.png" alt="small image for the Tank" />
+            <span>The Wringer</span>
+          </li>
         </ul>
       </div>
+      <div class="right">
+        <p>
+          <em>Down the Hatch</em>
+          <span>6ft Slide Covered in Gunk!</span>
+        </p>
+        <img src="assets/images/obstacle-hatch-large.jpg" alt="large image for Down the Hatch" />
+      </div>
+      <div class="clear">&nbsp;</div>
     </div>
   </section>
   <section id="prizes">
     <div class="content-inner">
-      <h3>Prizes</h3>
+      <h3><em>Prizes</em></h3>
       <div class="left">
         <img id="prize-space" src="assets/images/prize-space.png" alt="Space Camp prize image" />
         <p>A trip to Space Camp!</p>
@@ -55,12 +74,12 @@
         <img id="prize-tv" src="assets/images/prize-tv.png" alt="TV/VCR prize image" />
         <p>A 13 Inch TV/VCR Combo!</p>
       </div>
-      <div class="clear"></div>
+      <div class="clear">&nbsp;</div>
     </div>
   </section>
   <section id="contestant">
     <div class="content-inner">
-      <h3><em>Be A Contestant</em><span></span></h3>
+      <h3><em>Be A Contestant</em></h3>
       <div class="right">
         <div id="clock">
           <span id="clock-time">60</span>
@@ -68,7 +87,7 @@
         <p>The Clock <br />Is Ticking!</p>
       </div>
       <div class="left">
-        <form action="/" method="post">
+        <form action="/" method="get">
           <input type="text" id="form-name" name="name" value="Your Name" />
           <input type="text" id="form-email" name="email" value="Email Address" />
           <input type="text" id="form-team" name="team" value="Team Name" />
@@ -77,12 +96,13 @@
             <option value="red">Red</option>
             <option value="green">Green</option>
             <option value="orange">Orange</option>
-          <select>
+          </select>
           <select id="form-gender" name="gender">
-            <option value="nil">Gender</option>
+            <option selected value="nil">Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
+          
           <input type="text" id="form-url" name="profile" value="Profile Photo URL" />
           <input type="submit" id="form-submit" name="submit" value="Submit Entry" />
         </form>
