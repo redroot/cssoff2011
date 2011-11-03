@@ -1,4 +1,3 @@
-
 // massively hacked code from
 // http://www.jankoatwarpspeed.com/examples/reinventing-drop-down/Select2DropDown.html#
 
@@ -11,10 +10,11 @@ function customSelects(){
   
   $(document).bind('click', function(e) {
       var $clicked = $(e.target);
-      if (! $clicked.parents().hasClass("dropdown"))
+      if (! $clicked.parents().hasClass("dropdown")){
           $(".dropdown dd ul").hide();
+      }
   });
-  // 
+  
   $(".dropdown dd ul li a").click(function() {
       var text = $(this).html();
       var parent = $(this).parents(".dropdown");
@@ -76,7 +76,7 @@ $(document).ready(function(){
     "obstacle-hatch"   : ["Down The Hatch", "6ft Slide Covered In Gunk"],
     "obstacle-pick"    : ["Pick It!","Brave the sticky goo!"],
     "obstacle-wringer" : ["The Wringer","Squeeze through the rolling pins!"],
-  }
+  };
   
   obstacles.live("click",function(){
     

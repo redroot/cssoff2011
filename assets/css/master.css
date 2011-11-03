@@ -55,7 +55,7 @@ body {
   font-size: 14px;
   font-family: 'OpenSansRegular', Helvetica, Arial, sans-serif;
   color: #fff;
-  background: #7cbfd5 url("../images/header_bg.png") no-repeat center top;
+  background: #7cbfd5 url("../images/textures_blue.jpg") no-repeat center top;
 }
 
 header, section {
@@ -151,19 +151,16 @@ section .left, section .right {
 
 /** Sections **/
 
-header, footer, #contestant {
-  background: transparent url("../images/textures_blue.jpg") repeat left top;
-}
-
 header {
   padding-top: 50px;
+  background: transparent url("../images/header_bg.jpg") no-repeat center top;
 }
   h1 {
     width: 530px;
     height: 426px;
     margin: 20px auto 0px;
     text-indent: -9999px;
-    background: transparent url("../images/logo.png") no-repeat center top;
+    background: transparent url("../images/logo.jpg") no-repeat center top;
   }
   
   h2 {
@@ -538,8 +535,8 @@ footer {
 }
 
 @media only screen and (max-width: 767px) {
-  body {
-    background-image: url("../images/header_bg_mobile.png");
+  header {
+    background-image: url("../images/header_bg_mobile.jpg");
   }
   
   section, header, footer {
@@ -552,7 +549,7 @@ footer {
   h1 {
     width: auto;
     height: 300px;
-    background-image: url("../images/logo_mobile.png");
+    background-image: url("../images/logo-mobile.jpg");
   }
   
   h2 {
